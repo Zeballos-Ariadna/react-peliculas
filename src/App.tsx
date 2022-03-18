@@ -8,6 +8,7 @@ import ProyectarContenido from './ProyectarContenido';
 import ProyectarContenido2 from './ProyectarContenido2';
 //import EjemploReloj from './ejemploReloj';
 import ContenidoDinamico from './ContenidoDinamico';
+import FormularioTexto from './FormularioTexto';
 
 function App() {//Componente funcional,nomComp: App
 
@@ -21,10 +22,10 @@ function App() {//Componente funcional,nomComp: App
 
   //const manejarClick = () => console.log('click');
 
-  const manejarKeyUp= (e: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log(e.currentTarget.value);//Obtenemos lo que el usuario esta escribiendo
+  const manejarKeyUp= (textoInput: string) => {
+    console.log(textoInput);//Obtenemos lo que el usuario esta escribiendo
     //texto=e.currentTarget.value; //variable que contiene lo que el usuario esta escribiendo
-    setTexto(e.currentTarget.value);
+    setTexto(textoInput);//actualiza el estado de la componente
   }
 
   /*const parteIntermedia=<EjemploReloj />
@@ -69,10 +70,7 @@ function App() {//Componente funcional,nomComp: App
       onClick={() => console.log('click desde el botón')}>Clickeame</button>
       <br></br>
 
-
-      <input type="text"
-        onKeyUp={(e) => manejarKeyUp(e)}//Caja de texto
-      />
+      <FormularioTexto manejarKeyUp={(e: string) => manejarKeyUp(e)}/>
 
       <MostrarTexto texto={texto} />
       
