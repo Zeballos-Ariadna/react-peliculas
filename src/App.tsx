@@ -1,21 +1,22 @@
 //import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
 import './App.css'
 import MostrarTexto from './MostrarTexto';
-import ProyectarContenido from './ProyectarContenido';
-import ProyectarContenido2 from './ProyectarContenido2';
+//import ProyectarContenido from './ProyectarContenido';
+//import ProyectarContenido2 from './ProyectarContenido2';
 //import EjemploReloj from './ejemploReloj';
-import ContenidoDinamico from './ContenidoDinamico';
+//import ContenidoDinamico from './ContenidoDinamico';
 import FormularioTexto from './FormularioTexto';
+import EjemploUseEffect from './EjemploUseEffect';
 
 function App() {//Componente funcional,nomComp: App
 
   //let texto="";
 
   const [texto, setTexto] = useState('Valor por defecto');
-  const[checked,setChecked]= useState(false);
+  const[checked,setChecked]= useState(true);
 
 
   //const imagenURL ="https://sc04.alicdn.com/kf/U0721a48732814105aae97d2245765dd2a.png";
@@ -36,18 +37,26 @@ function App() {//Componente funcional,nomComp: App
 
   const parteInferior=<div style={estilo}></div>*/
 
-  const calificaciones=[
+  /*const calificaciones=[
     {nombre: 'Felipe', calificacion: 75},
     {nombre: 'Claudia', calificacion: 85},
     {nombre: 'Enzo', calificacion: 75}
-  ]
+  ]*/
 
   return (
     <div>
       
       <h1 className="rojo">Hola mundo!</h1>
 
-      {calificaciones.map(cal => <ContenidoDinamico key={cal.nombre} {...cal}/>)}
+      <div>
+        <input type="checkbox" 
+        onChange={(e) => setChecked(e.currentTarget.checked)}
+        checked={checked} /> Mostrar componente useEffect
+      </div>
+
+      {checked ? <EjemploUseEffect /> : null}
+
+      {/*{calificaciones.map(cal => <ContenidoDinamico key={cal.nombre} {...cal}/>)}*/ }
       <br></br>
 
       {/*<ProyectarContenido>
