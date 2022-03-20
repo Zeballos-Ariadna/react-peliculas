@@ -10,6 +10,8 @@ import MostrarTexto from './MostrarTexto';
 //import ContenidoDinamico from './ContenidoDinamico';
 import FormularioTexto from './FormularioTexto';
 import EjemploUseEffect from './EjemploUseEffect';
+import ValorContext from './ValorContext';
+import Abuelo from './Abuelo';
 
 function App() {//Componente funcional,nomComp: App
 
@@ -47,6 +49,10 @@ function App() {//Componente funcional,nomComp: App
     <div>
       
       <h1 className="rojo">Hola mundo!</h1>
+
+      <ValorContext.Provider value={texto}>
+        <Abuelo />
+      </ValorContext.Provider>
 
       <div>
         <input type="checkbox" 
