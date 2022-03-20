@@ -7,11 +7,12 @@ import MostrarTexto from './MostrarTexto';
 //import ProyectarContenido from './ProyectarContenido';
 //import ProyectarContenido2 from './ProyectarContenido2';
 //import EjemploReloj from './ejemploReloj';
-//import ContenidoDinamico from './ContenidoDinamico';
+import ContenidoDinamico from './ContenidoDinamico';
 import FormularioTexto from './FormularioTexto';
 import EjemploUseEffect from './EjemploUseEffect';
 import ValorContext from './ValorContext';
 import Abuelo from './Abuelo';
+import ErrorBoundary from './ErrorBoundary';
 
 function App() {//Componente funcional,nomComp: App
 
@@ -39,18 +40,25 @@ function App() {//Componente funcional,nomComp: App
 
   const parteInferior=<div style={estilo}></div>*/
 
-  /*const calificaciones=[
+  const calificaciones=[
     {nombre: 'Felipe', calificacion: 75},
-    {nombre: 'Claudia', calificacion: 85},
-    {nombre: 'Enzo', calificacion: 75}
-  ]*/
+    {nombre: 'Claudia', calificacion: -1},
+    {nombre: 'Enzo', calificacion: 85}
+  ]
 
   return (
     <div>
       
       <h1 className="rojo">Hola mundo!</h1>
 
-      <ValorContext.Provider value={texto}>
+      {calificaciones.map(cal =>
+      <ErrorBoundary key={cal.nombre}>
+        <ContenidoDinamico  {...cal}/>
+      </ErrorBoundary>
+         )}
+      
+
+      {/*<ValorContext.Provider value={texto}>
         <Abuelo />
       </ValorContext.Provider>
 
@@ -60,10 +68,8 @@ function App() {//Componente funcional,nomComp: App
         checked={checked} /> Mostrar componente useEffect
       </div>
 
-      {checked ? <EjemploUseEffect /> : null}
+      {checked ? <EjemploUseEffect /> : null}*/ }
 
-      {/*{calificaciones.map(cal => <ContenidoDinamico key={cal.nombre} {...cal}/>)}*/ }
-      <br></br>
 
       {/*<ProyectarContenido>
         <>
